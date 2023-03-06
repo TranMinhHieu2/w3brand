@@ -80,7 +80,7 @@
                                     <h4 class="tuor__add--name">New York</h4>
                                     <p class="tuor__add--date">Fri 27 Nov 2016</p>
                                     <p class="tuor__add--desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                    <a href="#" class="tour__add--but">By Tickets</a>
+                                    <button class="tour__add--but js_By_tickets">By Tickets</button>
                                 </div>
                             </div>
                             <div class="tuor__address--form">
@@ -89,7 +89,7 @@
                                     <h4 class="tuor__add--name">Paris</h4>
                                     <p class="tuor__add--date">Sat 28 Nov 2016</p>
                                     <p class="tuor__add--desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                    <a href="#" class="tour__add--but">By Tickets</a>
+                                    <button class="tour__add--but js_By_tickets">By Tickets</button>
                                 </div>
                             </div>
                             <div class="tuor__address--form">
@@ -98,7 +98,7 @@
                                     <h4 class="tuor__add--name">San Francisco</h4>
                                     <p class="tuor__add--date">Sun 29 Nov 2016</p>
                                     <p class="tuor__add--desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                    <a href="#" class="tour__add--but">By Tickets</a>
+                                    <button class="tour__add--but js_By_tickets">By Tickets</button>
                                 </div>
                             </div>
                         </div>
@@ -109,17 +109,68 @@
             <div class="content_description">
                 <h2 class="content_header">CONTACT</h2>
                 <p class="content_sub_header">Fan? Drop a note!</p>
+
+                <div class="row contact_contain">
+                    <div class="col col_half contact__infomation">
+                        <p>
+                            <i class="fas fa-map-marker-alt contact__infomation__icon"></i>
+                            Chicago, US
+                        </p>
+                        <p>
+                            <i class="fas fa-phone-alt contact__infomation__icon"></i>
+                            Phone: +00 151515
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope contact__infomation__icon"></i>
+                            Email: mail@mail.com
+                        </p>
+                    </div>
+                    <div class="col col_half">
+                        <form action="">
+                            <div class="row">
+                                <div class="col col_half">
+                                    <input type="text" name="" id="" required placeholder="Name" class="contact__ip">
+                                </div>
+                                <div class="col col_half">
+                                    <input type="email" name="" id="" required placeholder="Email" class="contact__ip">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col col_full">
+                                    <input type="text" name="" id="" required placeholder="Email" class="contact__ip contact__ip--message">
+                                    <!-- them required de hien thong bao nhap -->
+                                </div>
+                            </div>
+                            <input class="contact__ip--submit" type="submit" value="SEND">
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div id="footer">
+        <div class="map__back">
+            <img class="map__img" src="asset/img/footer/map (1).jpg" alt="">
+        </div>
 
+        <div id="footer">
+            <div class="footer__list">
+                <a href=""><i class="fab fa-facebook"></i></a>
+                <a href=""><i class="fab fa-instagram-square"></i></a>
+                <a href=""><i class="fab fa-pinterest"></i></a>
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-telegram"></i></a>
+                <a href=""><i class="fab fa-youtube"></i></a>
+
+            </div>
+            <div class="footer__text">
+                <p>Powered <a href="">w3.css</a></p>
+            </div>
         </div>
 
     </div>
-    <div class="model">
-        <div class="model__container">
-            <div class="model--close">
+    <div class="model js_model">
+        <div class="model__container js_model__container">
+            <div class="model--close js_model__close">
                 <i class="fas fa-times model--close--icon"></i>
             </div>
             <header class="model__header">
@@ -148,5 +199,31 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const Bytickets=document.querySelectorAll(".js_By_tickets");
+        const model=document.querySelector('.js_model');
+        const model_close=document.querySelector('.js_model__close')
+        const model__container=document.querySelector('.js_model__container')
+        function showmodel(){
+            model.classList.add('open')
+        }
+            
+        function closemodel () {
+            model.classList.remove('open')
+        }
+
+        for(const Byticket of Bytickets){
+            Byticket.addEventListener('click',showmodel);
+        }
+        model_close.addEventListener('click',closemodel);
+
+        model.addEventListener('click',closemodel);
+        model__container.addEventListener('click',function (event){
+            event.stopPropagation();
+        })
+
+    </script> 
+
 </body>
 </html>

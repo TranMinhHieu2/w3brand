@@ -8,12 +8,32 @@
 html {
     font-family: Arial, Helvetica, sans-serif;
 }
+/* chung */
 .text-white{
     color: #fff !important;
 }
-#main{
-
+.row{
+    margin-left: -8px;
+    margin-right: -8px;
 }
+.col{
+    float: left;
+    padding: 0 8px;
+}
+.col_full{
+    width: 100%;
+}
+.col_half{
+    width: 50%;
+}
+.row::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+/* thêm lớp giả để kết nối 2 div trong 1 div thành 1 khối liền */
+/* het */
+
 #header{
     height: 46px;
     background-color: rgb(0, 0, 0);
@@ -227,6 +247,8 @@ html {
     background-color: #000;
     text-decoration: none;
     display: inline-block;
+    border-style: none;
+    cursor: pointer;
 }
 .tour__add--but:hover{
     background-color: #ddd;
@@ -240,15 +262,24 @@ html {
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
+}
+.model.open{
+    display: flex;
+}
+.model.model--open{
+    display: flex;
 }
 .model__container{
     background-color: #fff;
     width: 900px;
     min-height: 100px;
     position: relative;
+    max-width: calc(100% - 32px);
+    /* reponsive */
+    animation: modelFace ease 0.5s;
 }
 .model__header{
     height: 129px;
@@ -308,6 +339,80 @@ html {
 .model__help__link{
     color: #2196F3;
 }
-#footer{
 
+@keyframes modelFace{
+    from{
+        transform: translateY(-130px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* contact */
+.contact_contain{
+    margin-top: 47px;
+}
+.contact__infomation{
+    font-size: 18px;
+    line-height: 1.5;
+}
+.contact__infomation__icon{
+    width: 30px;
+}
+.contact__ip{
+    font-size: 15px;
+    padding: 8px;
+    width: 100%;
+    border: 1px solid #ccc;
+}
+.contact__ip--message{
+    margin-top: 8px;
+}
+.contact__ip--submit{
+    font-size: 15px;
+    margin-top: 16px;
+    background-color: #000;
+    color: #fff;
+    padding: 11px 20px;
+    float: right;
+    cursor: pointer;
+    border: none;
+}
+.contact__ip--submit:hover{
+    background-color: #ccc;
+    color: #000;
+}
+/* footer */
+
+
+.map__back{
+    /* width: 100%; */
+    display: inline-block;
+    margin-top: 126px;
+    
+}
+.map__img{
+    width: 100%;
+
+}
+
+#footer{
+    padding: 64px 16px;
+    text-align: center;
+}
+
+.footer__list a {
+    margin: 0 2px;
+    font-size: 22px;
+    color: rgba(0, 0, 0, 0.6);
+}
+.footer__text{
+    margin-top: 20px;
+    color: rgba(0, 0, 0, 0.6);
+}
+.footer__text a{
+    color: rgba(0, 0, 0, 0.6);
 }
